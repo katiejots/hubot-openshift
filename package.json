@@ -1,0 +1,32 @@
+{
+  "name": "hubot-openshift",
+  "version": "1.0.0",
+  "description": "Hubot on OpenShift",
+  "keywords": [
+    "Hubot",
+    "OpenShift",
+    "Node.js",
+    "application",
+    "openshift"
+  ],  
+  "author": {
+    "name": "Katie Miller",
+    "email": "katie@codemiller.com",
+    "url": "http://www.codemiller.com/"
+  },  
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codemiller/hubot-openshift"
+  },  
+  "engines": {
+    "node": ">= 0.8.x",
+    "npm": ">= 1.1.x"
+  },
+  "dependencies": {
+    "hubot": ">= 2.6.0 < 3.0.0",
+    "hubot-scripts": ">= 2.5.0 < 3.0.0"
+  },
+  "scripts": {
+    "start": "PORT=$OPENSHIFT_NODEJS_PORT BIND_ADDRESS=$OPENSHIFT_NODEJS_IP HEROKU_URL=$OPENSHIFT_APP_DNS REDIS_URL=redis://:$REDIS_PASSWORD@$OPENSHIFT_REDIS_HOST:$OPENSHIFT_REDIS_PORT bin/hubot -n Hubot -a shell"
+  }
+}
